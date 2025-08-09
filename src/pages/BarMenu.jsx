@@ -25,9 +25,14 @@ const sections = [
 
 export default function BarMenu() {
   const scrollToSection = (id) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
+  const el = document.getElementById(id);
+  if (el) {
+    const yOffset = -80; // negative value moves the stop position down, adjust as needed
+    const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  }
+};
+
 
   return (
     <div className="min-h-screen bg-brandBg font-ramillas">
