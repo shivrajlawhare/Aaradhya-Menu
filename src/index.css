@@ -1,0 +1,52 @@
+/* main Tailwind + theme variables file
+   Make sure your Tailwind build is configured to process this file.
+*/
+@import "tailwindcss";
+
+/* Define theme variables that generate utility classes:
+   - color tokens -> text-*, bg-* etc
+   - font token -> font-tt-ramillas
+*/
+@theme {
+  /* Colors (use lowercase + hyphens for clean utility names) */
+  --color-brand-text: #066d7e;
+  --color-brand-bg: #fbf4ea;
+  --color-brand-logo: #ffc000;
+
+  /* Font token */
+  --font-tt-ramillas: "TT Ramillas", serif;
+}
+
+/* Load TT Ramillas from /public/fonts/ (place the .woff2 there) */
+@font-face {
+  font-family: "TT Ramillas";
+  src: url("/fonts/TTRamillas-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Basic page defaults (still use Tailwind utilities in components) */
+:root {
+  /* optional explicit CSS fallbacks */
+  --brand-bg: var(--color-brand-bg);
+  --brand-text: var(--color-brand-text);
+  --brand-logo: var(--color-brand-logo);
+  --font-ramillas: var(--font-tt-ramillas);
+}
+
+body {
+  margin: 0;
+  background-color: var(--brand-bg);
+  color: var(--brand-text);
+  font-family: var(--font-ramillas);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* small helper for images so they are mobile friendly */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
