@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 /**
  Props:
@@ -10,6 +11,7 @@ import { Link } from "react-router-dom";
 */
 export default function Drawer({ sections = [], onSelect, switchTo, logo }) {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -17,7 +19,9 @@ export default function Drawer({ sections = [], onSelect, switchTo, logo }) {
       <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 bg-brand-bg shadow-md h-20">
         {/* Logo container */}
         <div className="flex items-center">
-          <div className="w-30 h-12 flex items-center justify-center overflow-hidden rounded">
+          <div 
+          className="w-30 h-12 flex items-center justify-center overflow-hidden rounded"
+          onClick={() => navigate("/")} >
             <img
               src={logo}
               alt="Hotel Logo"
